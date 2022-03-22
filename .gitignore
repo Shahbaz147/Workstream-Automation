@@ -1,0 +1,9 @@
+# VSCode
+.vscode
+.vscode/
+node_modules/
+cypress/.DS_Store
+.Ds_store
+.DS_Store
+.DS_Store/
+package-lock.json
