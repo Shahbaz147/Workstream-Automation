@@ -4,8 +4,6 @@ class CommonMethodsPage extends strings{
     constructor() {
         super();
     }
-
-    strings = new strings();
     
     // Visit URL 
     visitURL(identifier: string){

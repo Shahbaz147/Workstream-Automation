@@ -10,20 +10,17 @@ class HomePage extends CommonMethodsPage {
 
     // Verify Home Page
     verifyHomePage(){
-        this.addWait(2000);
         this.verifyVisibility(this.homePage.sideBar)
     }
 
     // Click on training tab
     clickTrainingTab(){
-        this.addWait(2000);
-        this.getElement(this.homePage.sideBar).contains(this.homePage.trainingText).click();
+        this.getElement(this.homePage.sideBar).contains(this.trainingText).click();
     }
 
     // Click on dashboard under training
     clickDashboard(){
-        this.addWait(2000);
-        this.getElement(this.homePage.trainingTabList).contains(this.homePage.dashboardText).click();
+        this.getElement(this.homePage.trainingTabList).contains(this.dashboardText).click();
     }
 }
 

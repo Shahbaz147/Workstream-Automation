@@ -10,7 +10,7 @@ class Login extends CommonMethodsPage {
 
     // Verify correct landing page
     verifyLandingPage(){
-        this.verifyPageTitle(this.loginPage.pageTitle);
+        this.verifyPageTitle(this.pageTitle);
     }
 
     // Enter Email
@@ -26,10 +26,9 @@ class Login extends CommonMethodsPage {
 
     // Login to ERP
     LoginErp(){
-        this.visitURL(this.strings.loginUrl);
+        this.visitURL(this.loginUrl);
         this.verifyLandingPage(); 
-        this.getElement(this.loginPage.emailField).type(this.strings.loginEmail); 
-        this.getElement(this.loginPage.passwordField).type(this.strings.loginPassword); 
+        this.enterEmailAndPassword(this.loginEmail, this.loginPassword); 
         this.clickLoginButton();
     }
 }

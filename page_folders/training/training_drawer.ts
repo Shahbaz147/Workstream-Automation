@@ -16,22 +16,22 @@ class TrainingDrawer extends TrainingDashboard{
 
    // Enter Training Title
     enterTrainingTitle(){
-        this.getElement(this.trainingDrawer.trainingTitle).type(this.strings.trainingTitle);
+        this.getElement(this.trainingDrawer.trainingTitle).type(this.trainingTitle);
     }
 
     // Enter Training Details
     enterTrainingDetails(){
-        this.getElement(this.trainingDrawer.trainingDetails).type(this.strings.trainingDetails);
+        this.getElement(this.trainingDrawer.trainingDetails).type(this.trainingDetails);
     }
 
     // Enter Training Fee
     enterTrainingFees(){
-        this.getElement(this.trainingDrawer.trainingFee).clear().type(this.strings.trainingFee);
+        this.getElement(this.trainingDrawer.trainingFee).clear().type(this.trainingFee);
     }
 
     // Enter Trainer Name
     enterTrainerName(){
-        this.getElement(this.trainingDrawer.trainer).type(this.strings.trainer);
+        this.getElement(this.trainingDrawer.trainer).type(this.trainer);
     }
 
     // Click on training type drop down
@@ -41,7 +41,7 @@ class TrainingDrawer extends TrainingDashboard{
 
     // Select Training Type from drop down list
     SelectTrainingTypeFromList(){
-        this.getElement(this.trainingDrawer.trainingTypeList).contains(this.strings.trainingType).click();
+        this.getElement(this.trainingDrawer.trainingTypeList).contains(this.trainingType).click();
     }
 
     // Method to select training type
@@ -73,18 +73,18 @@ class TrainingDrawer extends TrainingDashboard{
 
     // click on months drop down in calender
     clickMonthDropDownInCalender(){
-        this.getElement(this.trainingDrawer.monthTabInCalender).click();
+        this.getElement(this.trainingDrawer.monthTabInCalender).eq(0).click();
     }
 
 
     // Select Month from month drop down
     selectMonthFromDropDownInCalender(){
-        this.getElement(this.trainingDrawer.monthsListInCalender).contains(this.strings.Month).click();
+        this.getElement(this.trainingDrawer.monthTabInCalender).eq(1).contains(this.Month).click();
     }
 
     // select end date from calender
     selectEndDateInCalender(){
-        this.getElement(this.trainingDrawer.endDateCalender).contains(Number(this.getCurrentDay())+2).click();
+        this.getElement(this.trainingDrawer.dateDiv).contains(Number(this.getCurrentDay())+2).click();
     }
 
     // Method to select end date
@@ -97,13 +97,12 @@ class TrainingDrawer extends TrainingDashboard{
 
     // Upload file on the page
     uploadFileOnPage(){
-        this.uploadFile(this.trainingDrawer.uploadFileButton, this.strings.filePath)
+        this.uploadFile(this.trainingDrawer.uploadFileButton, this.filePath)
     }
 
     // Submit training 
     submitTraining(){
-        this.addWait(2000);
-        cy.contains('Submit').click();
+        cy.contains(this.trainingSubmitButton).click();
     }
 }
 

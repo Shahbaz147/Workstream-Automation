@@ -10,42 +10,42 @@ class TrainingDetailsVerify extends TrainingDrawer{
 
     // Click on training added
     clickOnTrainingAdded(){
-        this.getElementBasedOnText(this.strings.trainingTitle).click();
+        this.getElementBasedOnText(this.trainingTitle).click();
     }
 
     // Verify training title
     verifyTrainingTitle(){
-        this.verifyValueMatched(this.verify_training_info.savedTrainingtTitleText ,this.strings.trainingTitle);
+        this.verifyValueMatched(this.verify_training_info.savedTrainingtTitleText ,this.trainingTitle);
     }
 
     // Verify training Detaile
     verifyTrainingDetail(){
-        this.verifyTextMatched(this.verify_training_info.savedTrainingDetail , this.strings.trainingDetails);
+        this.verifyTextMatched(this.verify_training_info.savedTrainingDetail , this.trainingDetails);
     }
 
     // Verify trainer
     verifyTrainingTrainer(){
-        this.verifyValueMatched(this.verify_training_info.savedTrainingTrainer ,this.strings.trainer);
+        this.verifyValueMatched(this.verify_training_info.savedTrainingTrainer ,this.trainer);
     }
 
     // Verify training type
     verifyTrainingType(){
-        this.verifyTextMatched(this.verify_training_info.savedTrainingType ,this.strings.trainingType);
+        this.verifyTextMatched(this.verify_training_info.savedTrainingType ,this.trainingType);
     }
 
     // Verify training fee
     verifyTrainingFee(){
-        this.verifyValueMatched(this.verify_training_info.savedTrainingFee ,this.strings.trainingFee);
+        this.verifyValueMatched(this.verify_training_info.savedTrainingFee ,this.trainingFee);
     }
 
    // Verify training start date
     verifyStartDate(){
-        this.getElement(this.verify_training_info.savedTrainingStartDate).invoke('val').should('match',this.strings.dateRegex);
+        this.getElement(this.verify_training_info.savedTrainingStartDate).invoke('val').should('match',this.dateRegex);
     }
 
    // Verify training end date
     verifyEndDate(){
-        this.getElement(this.verify_training_info.savedTrainingEndDate).invoke('val').should('match',this.strings.dateRegex);
+        this.getElement(this.verify_training_info.savedTrainingEndDate).invoke('val').should('match',this.dateRegex);
     }
 
     // Verify file uploaded
