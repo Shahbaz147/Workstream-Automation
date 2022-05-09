@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "e2e-dashboard": "cypress run --headed --browser chrome",
+
   },
   "keywords": [],
   "author": "",
