@@ -1,65 +1,101 @@
 import { strings } from "../../common/strings";
 
-class CommonMethodsPage extends strings{
-    constructor() {
-        super();
-    }
-    
-    // Visit URL 
-    visitURL(identifier: string){
-        cy.visit(identifier)
-    }
+export class CommonMethodsPage extends strings {
+  // constructor() {
+  //     super();
+  // }
 
-    // verify page title
-    verifyPageTitle(text: string){
-        cy.title().should('eq', text)
-    }
+  /**
+   * Visits url
+   * @param identifier
+   */
+  visitURL(identifier: string) {
+    cy.visit(identifier);
+  }
 
-    // Get Element 
-    getElement(identifier: any) {
-        return cy.get(identifier);
-    }
+  /**
+   * Verifys page title
+   * @param text
+   */
+  verifyPageTitle(text: string) {
+    cy.title().should("eq", text);
+  }
 
-    // Verify if Element is visible
-    verifyVisibility(identifier: any){
-        this.getElement(identifier).should("be.visible");
-    }
+  /**
+   * Gets element
+   * @param - identifier
+   * @returns - returns element
+   */
+  getElement(identifier: any) {
+    return cy.get(identifier);
+  }
 
-    // Click on Element
-    clickElement(identifier: any){
-        this.getElement(identifier).click();
-    }
+  /**
+   * Verifys visibility
+   * @param identifier
+   */
+  verifyVisibility(identifier: any) {
+    this.getElement(identifier).should("be.visible");
+  }
 
-    // get any element based on text
-    getElementBasedOnText(text: any) {
-        return cy.contains(text);
-    }
+  /**
+   * Clicks element
+   * @param identifier
+   */
+  clickElement(identifier: any) {
+    this.getElement(identifier).click();
+  }
 
-    // Verify if text matched
-    verifyTextMatched(identifier: any, text: any): void {
-        this.getElement(identifier).should("have.text", text);
-    }
+  /**
+   * Gets element based on text
+   * @param text
+   * @returns
+   */
+  getElementBasedOnText(text: any) {
+    return cy.contains(text);
+  }
 
-    // Verify if value matched
-    verifyValueMatched(identifier: any, text: any): void{
-        this.getElement(identifier).should("have.value", text);
-    }
+  /**
+   * Verifys text matched
+   * @param identifier
+   * @param text
+   */
+  verifyTextMatched(identifier: any, text: any): void {
+    this.getElement(identifier).should("have.text", text);
+  }
 
-    // set wait
-    addWait(number: any) {
-        cy.wait(number);
-    }
+  /**
+   * Verifys value matched
+   * @param identifier
+   * @param text
+   */
+  verifyValueMatched(identifier: any, text: any): void {
+    this.getElement(identifier).should("have.value", text);
+  }
 
-    // Get today date
-    getCurrentDay() {
-        let currentDate = new Date();
-        return currentDate.getDate();
-    }
+  /**
+   * Adds wait
+   * @param number
+   */
+  addWait(number: any) {
+    cy.wait(number);
+  }
 
-    // Upload file
-    uploadFile(identifier: any, filePath: string) {
-        cy.get(identifier).attachFile(filePath, { subjectType: "drag-n-drop" });
-    }
+  /**
+   * Gets current day
+   * @returns
+   */
+  getCurrentDay() {
+    let currentDate = new Date();
+    return currentDate.getDate();
+  }
+
+  /**
+   * Uploads file
+   * @param identifier
+   * @param filePath
+   */
+  uploadFile(identifier: any, filePath: string) {
+    cy.get(identifier).attachFile(filePath, { subjectType: "drag-n-drop" });
+  }
 }
-
-export { CommonMethodsPage };

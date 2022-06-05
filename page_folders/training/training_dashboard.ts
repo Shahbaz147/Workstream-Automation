@@ -1,27 +1,31 @@
-import {TrainingDashboardLocators} from "../../common/erp_locators";
-import {CommonMethodsPage} from "../common_methods/common_methods";
+import { TrainingDashboardLocators } from "../../common/erp_locators";
+import { CommonMethodsPage } from "../common_methods/common_methods";
 
-class TrainingDashboard extends CommonMethodsPage{
-    constructor() {
-        super();
-    }
+export class TrainingDashboard extends CommonMethodsPage {
+  // constructor() {
+  //     super();
+  // }
 
-    trainingDashboard = new TrainingDashboardLocators();
+  trainingDashboard = new TrainingDashboardLocators();
 
-    // Verify training page
-    verifyTrainingPage(){
-        this.verifyVisibility(this.trainingDashboard.trainingDashboardText);
-    }
+  /**
+   * Verifys training page
+   */
+  verifyTrainingPage() {
+    this.verifyVisibility(this.trainingDashboard.trainingDashboardText);
+  }
 
-    // Verify Record training button
-    verifyRecordTrainingButton(){
-        this.verifyVisibility(this.trainingDashboard.recordTrainingButton)
-    }
+  /**
+   * Verifys record training button
+   */
+  verifyRecordTrainingButton() {
+    this.verifyVisibility(this.trainingDashboard.recordTrainingButton);
+  }
 
-    // Click on record training button
-    clickRecordTrainingButton(){
-        this.getElement(this.trainingDashboard.recordTrainingButton).click();
-    }
+  /**
+   * Clicks record training button
+   */
+  clickRecordTrainingButton() {
+    this.getElement(this.trainingDashboard.recordTrainingButton).click();
+  }
 }
-
-export { TrainingDashboard };

@@ -1,11 +1,20 @@
+// {
+//     "compilerOptions": {
+//       "outDir": "./dist/",
+//       "noImplicitAny": true,
+//       "module": "es6",
+//       "target": "es5",
+//       "jsx": "react",
+//       "allowJs": true,
+//       "types": ["cypress", "cypress-file-upload"]
+//     }
+// }
+
 {
-    "compilerOptions": {
-      "outDir": "./dist/",
-      "noImplicitAny": true,
-      "module": "es6",
-      "target": "es5",
-      "jsx": "react",
-      "allowJs": true,
-      "types": ["cypress", "cypress-file-upload"]
-    }
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "cypress-file-upload", "cypress-xpath"]
+  },
+  "include": ["**/*.ts"]
 }

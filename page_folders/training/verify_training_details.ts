@@ -1,57 +1,95 @@
-import {SavedTrainingVerificationLocators} from "../../common/erp_locators";
+import { SavedTrainingVerificationLocators } from "../../common/erp_locators";
 import { TrainingDrawer } from "./training_drawer";
 
-class TrainingDetailsVerify extends TrainingDrawer{
-    constructor(){
-        super();
-    }
+export class TrainingDetailsVerify extends TrainingDrawer {
+  // constructor(){
+  //     super();
+  // }
 
-    verify_training_info = new SavedTrainingVerificationLocators();
+  verify_training_info = new SavedTrainingVerificationLocators();
 
-    // Click on training added
-    clickOnTrainingAdded(){
-        this.getElementBasedOnText(this.trainingTitle).click();
-    }
+  /**
+   * Clicks on training added
+   */
+  clickOnTrainingAdded() {
+    this.addWait(2000);
+    this.getElementBasedOnText(this.trainingTitle).click();
+  }
 
-    // Verify training title
-    verifyTrainingTitle(){
-        this.verifyValueMatched(this.verify_training_info.savedTrainingtTitleText ,this.trainingTitle);
-    }
+  /**
+   * Verifys training title
+   */
+  verifyTrainingTitle() {
+    this.verifyValueMatched(
+      this.verify_training_info.savedTrainingtTitleText,
+      this.trainingTitle
+    );
+  }
 
-    // Verify training Detaile
-    verifyTrainingDetail(){
-        this.verifyTextMatched(this.verify_training_info.savedTrainingDetail , this.trainingDetails);
-    }
+  /**
+   * Verifys training detail
+   */
+  verifyTrainingDetail() {
+    this.verifyTextMatched(
+      this.verify_training_info.savedTrainingDetail,
+      this.trainingDetails
+    );
+  }
 
-    // Verify trainer
-    verifyTrainingTrainer(){
-        this.verifyValueMatched(this.verify_training_info.savedTrainingTrainer ,this.trainer);
-    }
+  /**
+   * Verifys training trainer
+   */
+  verifyTrainingTrainer() {
+    this.verifyValueMatched(
+      this.verify_training_info.savedTrainingTrainer,
+      this.trainer
+    );
+  }
 
-    // Verify training type
-    verifyTrainingType(){
-        this.verifyTextMatched(this.verify_training_info.savedTrainingType ,this.trainingType);
-    }
+  /**
+   * Verifys training type
+   */
+  verifyTrainingType() {
+    this.verifyTextMatched(
+      this.verify_training_info.savedTrainingType,
+      this.trainingType
+    );
+  }
 
-    // Verify training fee
-    verifyTrainingFee(){
-        this.verifyValueMatched(this.verify_training_info.savedTrainingFee ,this.trainingFee);
-    }
+  /**
+   * Verifys training fee
+   */
+  verifyTrainingFee() {
+    this.verifyValueMatched(
+      this.verify_training_info.savedTrainingFee,
+      this.trainingFee
+    );
+  }
 
-   // Verify training start date
-    verifyStartDate(){
-        this.getElement(this.verify_training_info.savedTrainingStartDate).invoke('val').should('match',this.dateRegex);
-    }
+  /**
+   * Verifys start date
+   */
+  verifyStartDate() {
+    this.getElement(this.verify_training_info.savedTrainingStartDate)
+      .invoke("val")
+      .should("match", this.dateRegex);
+  }
 
-   // Verify training end date
-    verifyEndDate(){
-        this.getElement(this.verify_training_info.savedTrainingEndDate).invoke('val').should('match',this.dateRegex);
-    }
+  /**
+   * Verifys end date
+   */
+  verifyEndDate() {
+    this.getElement(this.verify_training_info.savedTrainingEndDate)
+      .invoke("val")
+      .should("match", this.dateRegex);
+  }
 
-    // Verify file uploaded
-    verifyUploadedFile(){
-        this.getElement(this.verify_training_info.savedTrainingFile).should('be.visible');
-    }
+  /**
+   * Verifys uploaded file
+   */
+  verifyUploadedFile() {
+    this.getElement(this.verify_training_info.savedTrainingFile).should(
+      "be.visible"
+    );
+  }
 }
-
-export { TrainingDetailsVerify };
