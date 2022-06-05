@@ -49,6 +49,5 @@ describe("Record Training at ERP", () => {
     trainingDetailVerify.verifyUploadedFile();
 
     cy.log("User Verified that training saved with exact information.");
-    cy.log("shahbaz");
   });
 });
