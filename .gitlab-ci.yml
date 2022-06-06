@@ -1,5 +1,38 @@
-demo_1:
+#demo_1:
+#  tags:
+#    - ci
+#  script:
+#    - echo Hello World
+
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/python
+image: node:16-alpine
+
+e2e_tests:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  image: cypress/browsers:node12.14.1-chrome85-ff81
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - .npm/
+  before_script:
+    - npm -v
+    - npm install --cache .npm --prefer-offline
+  after_script:
+    - npx mochawesome-merge "cypress/results/*.json" > mochawesome.json
+    - npx marge mochawesome.json
   tags:
-    - ci
+    - workstream_e2e
   script:
-    - echo Hello World
+    - npm ci
+    - npm run start:ci &
+    # run Cypress tests
+    - npx cypress run --browser chrome || [ $? -eq 101 ]
+
+  artifacts:
+    paths:
+      - mochawesome-report/
+    when: always
